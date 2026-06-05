@@ -23,7 +23,7 @@ export async function parseDataset(file: File): Promise<DatasetStats> {
           features: columns.length - 1,
           columns,
           targetVariable,
-          data
+          data: data as Record<string, string | number | boolean>[]
         });
       },
       error: (error) => {

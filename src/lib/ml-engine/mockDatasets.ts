@@ -3,7 +3,7 @@ export interface DatasetStats {
   features: number;
   columns: string[];
   targetVariable: string;
-  data: any[];
+  data: Record<string, string | number | boolean>[];
 }
 
 export const IRIS_DATASET: DatasetStats = {

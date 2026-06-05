@@ -10,7 +10,7 @@ export interface ModelResult {
     recall: number;
     f1: number;
   };
-  predictions: any[];
+  predictions: Array<{ actual: string | number | boolean; predicted: string | number | boolean }>;
 }
 
 // Simulates running a machine learning algorithm realistically.
@@ -108,7 +108,7 @@ export async function simulateModels(
   return models.filter(m => m.name === modelName);
 }
 
-export function simulatePrediction(inputs: Record<string, any>, models: ModelResult[], dataset: DatasetStats) {
+export function simulatePrediction(inputs: Record<string, string | number | boolean>, models: ModelResult[], dataset: DatasetStats) {
   // Use inputs length to slightly vary the prediction mock
   const inputKeysLength = Object.keys(inputs).length;
   // Just return realistic looking mock predictions based on the target variable

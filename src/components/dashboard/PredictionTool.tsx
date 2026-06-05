@@ -12,7 +12,7 @@ interface Props {
 
 export function PredictionTool({ dataset, models }: Props) {
   const [inputs, setInputs] = useState<Record<string, string>>({});
-  const [predictions, setPredictions] = useState<{ modelName: string; prediction: any }[] | null>(null);
+  const [predictions, setPredictions] = useState<{ modelName: string; prediction: string | number | boolean }[] | null>(null);
   
   // Exclude target variable from inputs
   const featureCols = dataset.columns.filter(c => c !== dataset.targetVariable);
